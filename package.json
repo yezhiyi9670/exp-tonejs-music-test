@@ -1,0 +1,41 @@
+{
+  "name": "tonejs-music-test",
+  "version": "1.0.0",
+  "description": "Music related tests using tone.js",
+  "source": "./src/index.html",
+  "author": "yezhiyi9670",
+  "license": "MIT",
+  "devDependencies": {
+    "@parcel/packager-ts": "^2.9.3",
+    "@types/node": "^20.4.2",
+    "@types/react": "^18.2.14",
+    "@types/react-dom": "^18.2.7",
+    "cross-env": "^7.0.3",
+    "eslint": "^8.44.0",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "parcel": "^2.9.3",
+    "parcel-reporter-static-files-copy": "^1.5.0",
+    "process": "^0.11.10",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "browserslist": "> 0.5%, last 2 versions, Firefox ESR, not dead",
+  "scripts": {
+    "start": "cross-env BUILD_TYPE=demo parcel --port 8524 --host localhost --dist-dir ./dist/test/",
+    "start-public": "cross-env BUILD_TYPE=demo parcel --port 8524 --host 0.0.0.0 --dist-dir ./dist/test/",
+    "build": "ts-node ./config/clean.ts && cross-env BUILD_TYPE=demo parcel build --dist-dir ./dist/demo/ --public-url ./ src/index.html"
+  },
+  "dependencies": {
+    "tone": "^14.7.77"
+  },
+  "staticFiles": [
+    {
+      "staticPath": "static/",
+      "staticOutPath": "static/",
+      "env": {
+        "BUILD_TYPE": "demo"
+      }
+    }
+  ]
+}
